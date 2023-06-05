@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { Button } from './components';
 
 function App() {
+  const [check, setCheck] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="p-10">
+      <div className="space-x-2">
+        <Button>Contained</Button>
+        <Button variant="outlined">Outlined</Button>
+        <Button variant="text">Text</Button>
+
+        <h4 className="mt-10">
+          variant : contained (default) , outlined , text
+        </h4>
+        <Button onClick={() => setCheck(!check)}>
+          {check ? 'true' : 'false'}
+        </Button>
+      </div>
     </div>
   );
 }
